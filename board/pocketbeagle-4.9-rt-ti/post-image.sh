@@ -6,7 +6,7 @@
 BOARD_DIR="$(dirname $0)"
 
 # copy the uEnv.txt to the output/images directory
-cp board/beaglebone/uEnv.txt $BINARIES_DIR/uEnv.txt
+cp board/pocketbeagle-4.9-rt-ti/uEnv.txt $BINARIES_DIR/uEnv.txt
 
 # the 4.1 kernel does not provide a dtb for beaglebone green, so we
 # use a different genimage config if am335x-bonegreen.dtb is not
