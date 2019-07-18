@@ -7,6 +7,13 @@ BOARD_DIR="$(dirname $0)"
 
 # copy the uEnv.txt to the output/images directory
 cp board/pocketbeagle-4.9-rt-ti/uEnv.txt $BINARIES_DIR/uEnv.txt
+if [ -e  $BINARIES_DIR/shared_area_landmark ]
+then
+	echo Image maked before
+else
+	touch $BINARIES_DIR/shared_area_landmark
+	echo "/dev/mmcblk0p3  /mnt/shared/mounted/    auto    rw      0       1">>"${TARGET_DIR}"/etc/fstab
+fi
 
 # the 4.1 kernel does not provide a dtb for beaglebone green, so we
 # use a different genimage config if am335x-bonegreen.dtb is not
@@ -27,3 +34,9 @@ genimage \
     --inputpath "${BINARIES_DIR}" \
     --outputpath "${BINARIES_DIR}" \
     --config "${GENIMAGE_CFG}"
+
+sdcard_dated="${BINARIES_DIR}/sdcard-$(date +"%Y_%m_%d_%H_%M").img"
+cp "${BINARIES_DIR}/sdcard.img" "${sdcard_dated}"
+
+xz  "${sdcard_dated}" &
+#ls -ahl "${BINARIES_DIR}"
