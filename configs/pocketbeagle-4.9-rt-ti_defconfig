@@ -4,6 +4,7 @@ BR2_GLOBAL_PATCH_DIR="board/pocketbeagle-4.9-rt-ti/patches"
 BR2_PACKAGE_HOST_LINUX_HEADERS_CUSTOM_4_9=y
 BR2_TARGET_GENERIC_GETTY_PORT="ttyO0"
 BR2_ROOTFS_POST_IMAGE_SCRIPT="board/pocketbeagle-4.9-rt-ti/post-image.sh"
+BR2_ROOTFS_POST_BUILD_SCRIPT="board/pocketbeagle-4.9-rt-ti/post-build.sh"
 BR2_LINUX_KERNEL=y
 BR2_LINUX_KERNEL_CUSTOM_GIT=y
 BR2_LINUX_KERNEL_CUSTOM_REPO_URL="git://git.ti.com/processor-sdk/processor-sdk-linux.git"
