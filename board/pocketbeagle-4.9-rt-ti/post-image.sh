@@ -11,6 +11,7 @@ if [ -e  $BINARIES_DIR/shared_area_landmark ]
 then
 	echo Image maked before
 else
+	mkdir -p "${TARGET_DIR}/mnt/shared/mounted/"
 	touch $BINARIES_DIR/shared_area_landmark
 	echo "/dev/mmcblk0p3  /mnt/shared/mounted/    auto    rw      0       1">>"${TARGET_DIR}"/etc/fstab
 fi
